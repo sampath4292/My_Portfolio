@@ -1,3 +1,34 @@
+// Theme Management
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const body = document.body;
+
+// Check for saved theme preference or default to 'light'
+const currentTheme = localStorage.getItem('theme') || 'light';
+body.setAttribute('data-theme', currentTheme);
+
+// Update icon based on current theme
+function updateThemeIcon(theme) {
+    if (theme === 'dark') {
+        themeIcon.className = 'fas fa-sun';
+    } else {
+        themeIcon.className = 'fas fa-moon';
+    }
+}
+
+// Initialize theme icon
+updateThemeIcon(currentTheme);
+
+// Theme toggle functionality
+themeToggle.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+});
+
 // Mobile Navigation Toggle
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
@@ -110,7 +141,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// Add parallax effect to hero section
+// Modified parallax effect to prevent sections from moving up incorrectly
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
@@ -119,6 +150,7 @@ window.addEventListener('scroll', () => {
         hero.style.transform = `translateY(${scrolled * 0.2}px)`;
     }
 });
+
 // Add hover effects to profile cards
 document.querySelectorAll('.profile-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
@@ -205,4 +237,5 @@ navStyle.textContent = `
     }
 `;
 document.head.appendChild(navStyle);
-console.log('Portfolio loaded successfully! 🚀');
+
+console.log('Portfolio loaded successfully with theme support! 🚀');

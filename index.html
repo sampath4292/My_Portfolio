@@ -4,28 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sreeram Sampath Kumar - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="logo">Sreeram SK</div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#coding" class="nav-link">Coding Profiles</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="logo">Sreeram Sampath Kumar</div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#coding-profiles" class="nav-link">Coding Profiles</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -161,22 +166,32 @@
     </section>
 
     <!-- Coding Profiles Section -->
-    <section id="coding" class="coding-profiles">
+    <section id="coding-profiles" class="coding-profiles">
         <div class="container">
             <h2 class="section-title">Competitive Programming Profiles</h2>
             <p class="section-subtitle">Check out my problem-solving journey across different platforms</p>
             <div class="profiles-grid">
-                
+                <div class="profile-card">
+                    <div class="profile-icon">
+                        <i class="fab fa-hackerrank"></i>
+                    </div>
+                    <h3>HackerRank</h3>
+                    <div class="profile-stats">
+                        <p><strong>Rating:</strong> 1500+</p>
+                        <p><strong>Problems:</strong> 150+</p>
+                    </div>
+                    <a href="#" class="profile-link" target="_blank">View Profile</a>
+                </div>
                 <div class="profile-card">
                     <div class="profile-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>LeetCode</h3>
                     <div class="profile-stats">
-                        <p><strong>Rating:</strong> 1549</p>
-                        <p><strong>Problems:</strong> 500+</p>
+                        <p><strong>Rating:</strong> 1400+</p>
+                        <p><strong>Problems:</strong> 200+</p>
                     </div>
-                    <a href="https://leetcode.com/u/sampath4292/" class="profile-link" target="_blank">View Profile</a>
+                    <a href="#" class="profile-link" target="_blank">View Profile</a>
                 </div>
                 <div class="profile-card">
                     <div class="profile-icon">
@@ -184,21 +199,21 @@
                     </div>
                     <h3>CodeChef</h3>
                     <div class="profile-stats">
-                        <p><strong>Rating:</strong> 1502</p>
-                        <p><strong>Stars:</strong> 2★</p>
+                        <p><strong>Rating:</strong> 1600+</p>
+                        <p><strong>Stars:</strong> 3★</p>
                     </div>
-                    <a href="https://www.codechef.com/users/ssampath4292" class="profile-link" target="_blank">View Profile</a>
+                    <a href="#" class="profile-link" target="_blank">View Profile</a>
                 </div>
                 <div class="profile-card">
                     <div class="profile-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <h3>Geeks for Geeks</h3>
+                    <h3>Codeforces</h3>
                     <div class="profile-stats">
-                        <p><strong>Rating:</strong> 1597</p>
-                        <p><strong>Problems:</strong> 200+</p>
+                        <p><strong>Rating:</strong> 1300+</p>
+                        <p><strong>Rank:</strong> Pupil</p>
                     </div>
-                    <a href="https://www.geeksforgeeks.org/user/sampath4292/" class="profile-link" target="_blank">View Profile</a>
+                    <a href="#" class="profile-link" target="_blank">View Profile</a>
                 </div>
             </div>
         </div>
@@ -281,8 +296,8 @@
                         </div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p>sampathsreeram4292@gmail.com</p>
-                            <a href="mailto:sampathsreeram4292@gmail.com" class="contact-link">Send Email</a>
+                            <p>sreeram@example.com</p>
+                            <a href="mailto:sreeram@example.com" class="contact-link">Send Email</a>
                         </div>
                     </div>
                     
