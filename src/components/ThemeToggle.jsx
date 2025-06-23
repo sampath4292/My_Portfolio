@@ -7,13 +7,13 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="fixed top-5 right-4 p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors z-50"
+      className="fixed top-5 right-4 p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 hover:bg-card hover:border-primary/50 transition-all duration-300 z-50 shadow-lg hover:shadow-xl hover:scale-110"
       aria-label="Toggle theme"
     >
       {theme === "light" ? (
-        <Moon className="w-5 h-5 text-primary" />
+        <Moon className="w-5 h-5 text-primary transition-transform duration-300 hover:rotate-12" />
       ) : (
-        <Sun className="w-5 h-5 text-primary" />
+        <Sun className="w-5 h-5 text-primary transition-transform duration-300 hover:rotate-12" />
       )}
     </button>
   );

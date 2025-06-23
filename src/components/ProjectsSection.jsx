@@ -1,5 +1,4 @@
 import { Github, ExternalLink } from "lucide-react";
-import { useEffect } from "react";
 
 export const ProjectsSection = () => {
     const projects = [
@@ -44,59 +43,47 @@ export const ProjectsSection = () => {
         }, 500);
     };
 
-    useEffect(() => {
-        const observer = new window.IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            },
-            { threshold: 0.15 }
-        );
-        document.querySelectorAll('.fade-in-up').forEach((el) => {
-            observer.observe(el);
-        });
-        return () => observer.disconnect();
-    }, []);
-
     return (
         <section id="projects" className="py-24 px-4 relative">
             <div className="container mx-auto max-w-5xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <h2 
+                    className="text-3xl md:text-4xl font-bold mb-16 text-center font-display"
+                    data-aos="fade-up"
+                >
                     My Projects
                 </h2>
-                <div className="flex flex-col gap-10">
+                <div className="flex flex-col gap-12">
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className={`bg-card rounded-xl border border-border shadow-md group flex flex-col md:flex-row ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} h-full glow-card-hover lift-shadow-hover fade-in-up`}
+                            className={`bg-card rounded-xl border border-border/50 shadow-lg group flex flex-col md:flex-row ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} h-full glow-card-hover lift-shadow-hover`}
+                            data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+                            data-aos-delay={index * 200}
                         >
                             {/* Image Side */}
-                            <div className="md:w-1/2 flex items-center justify-center p-6">
-                                <div className="relative overflow-hidden rounded-lg aspect-video w-full bg-white border border-border flex items-center justify-center">
+                            <div className="md:w-1/2 flex items-center justify-center p-8">
+                                <div className="relative overflow-hidden rounded-xl aspect-video w-full bg-white border border-border/50 flex items-center justify-center group-hover:shadow-2xl group-hover:shadow-primary/20 transition-all duration-500">
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 group-hover:shadow-[0_0_24px_4px_rgba(139,92,246,0.3)]"
+                                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 pointer-events-none rounded-lg group-hover:bg-primary/10 transition-colors duration-300" />
+                                    <div className="absolute inset-0 pointer-events-none rounded-xl group-hover:bg-primary/5 transition-colors duration-300" />
                                 </div>
                             </div>
                             {/* Info Side */}
-                            <div className="md:w-1/2 flex flex-col justify-center p-6 space-y-4 text-left">
-                                <h3 className="text-2xl font-bold text-primary">
+                            <div className="md:w-1/2 flex flex-col justify-center p-8 space-y-6 text-left">
+                                <h3 className="text-2xl font-bold text-primary font-display">
                                     {project.title}
                                 </h3>
-                                <p className="text-muted-foreground">
+                                <p className="text-foreground/80 font-body leading-relaxed">
                                     {project.description}
                                 </p>
                                 <div className="flex flex-wrap gap-2 py-2">
                                     {project.techStack.map((tech, techIndex) => (
                                         <span
                                             key={techIndex}
-                                            className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary"
+                                            className="px-3 py-2 text-sm rounded-full bg-primary/10 text-primary font-body font-medium hover:bg-primary/20 transition-all duration-300"
                                         >
                                             {tech}
                                         </span>
@@ -107,7 +94,7 @@ export const ProjectsSection = () => {
                                         href={project.githubLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="cosmic-button !px-6 !py-2 flex items-center gap-2 ripple"
+                                        className="cosmic-button !px-6 !py-3 flex items-center gap-2 ripple glow-hover font-display font-semibold"
                                         onClick={handleRipple}
                                     >
                                         <Github className="h-5 w-5" />
@@ -117,7 +104,7 @@ export const ProjectsSection = () => {
                                         href={project.demoLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors flex items-center gap-2 glow-hover ripple"
+                                        className="px-6 py-3 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center gap-2 glow-hover ripple font-display font-semibold"
                                         onClick={handleRipple}
                                     >
                                         <ExternalLink className="h-5 w-5" />

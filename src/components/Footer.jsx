@@ -22,12 +22,12 @@ export const Footer = () => {
     ];
 
     return (
-        <footer className="py-8 px-4 border-t border-border">
+        <footer className="py-12 px-4 border-t border-border/50 bg-card/50">
             <div className="container mx-auto max-w-5xl">
-                <div className="flex flex-col items-center justify-center space-y-4">
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                <div className="flex flex-col items-center justify-center space-y-6">
+                    <div className="flex items-center gap-2 text-foreground/70 font-body">
                         <span>Crafted with</span>
-                        <Heart className="h-4 w-4 text-red-500 fill-current" />
+                        <Heart className="h-4 w-4 text-primary fill-current animate-pulse" />
                         <span>and a passion for clean code</span>
                     </div>
                     
@@ -38,7 +38,7 @@ export const Footer = () => {
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-primary transition-colors"
+                                className="text-foreground/60 hover:text-primary transition-all duration-300 hover:scale-110 p-2 rounded-lg hover:bg-primary/10"
                                 aria-label={link.name}
                             >
                                 {link.icon}
@@ -46,7 +46,7 @@ export const Footer = () => {
                         ))}
                     </div>
 
-                    <div className="text-sm text-muted-foreground text-center">
+                    <div className="text-sm text-foreground/60 text-center font-body">
                         <p>Turning coffee into code since 2022</p>
                         <p className="mt-1">© {currentYear} Sampath Kumar. All rights reserved.</p>
                     </div>

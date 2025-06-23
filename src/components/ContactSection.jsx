@@ -48,19 +48,35 @@ export const ContactSection = () => {
     return (
         <section id="contact" className="py-24 px-4 relative">
             <div className="container mx-auto max-w-5xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+                <h2 
+                    className="text-3xl md:text-4xl font-bold mb-6 text-center font-display"
+                    data-aos="fade-up"
+                >
                     Contact Me
                 </h2>
-                <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+                <p 
+                    className="text-foreground/70 text-center mb-16 max-w-2xl mx-auto font-body leading-relaxed"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                >
                     I'm always open to new opportunities and collaborations. Feel free to reach out!
                 </p>
-                <div className="flex flex-col sm:flex-row gap-6 mb-8 justify-center items-center">
+                <div 
+                    className="flex flex-col sm:flex-row gap-6 mb-12 justify-center items-center"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                >
                     {contactInfo.map((info, idx) => (
-                        <div key={idx} className="flex items-center gap-3 bg-card rounded-lg border border-border px-4 py-3 w-full sm:w-auto glow-card-hover cursor-pointer">
-                            {info.icon}
-                            <div className="flex flex-row sm:flex-col gap-2 sm:gap-0 items-center sm:items-start">
-                                <div className="text-sm text-muted-foreground whitespace-nowrap">{info.label}</div>
-                                <div className="font-medium text-primary whitespace-nowrap">{info.value}</div>
+                        <div 
+                            key={idx} 
+                            className="flex items-center gap-4 bg-card rounded-xl border border-border/50 px-6 py-4 w-full sm:w-auto glow-card-hover cursor-pointer hover:scale-105 transition-all duration-300"
+                        >
+                            <div className="p-2 rounded-lg bg-primary/10">
+                                {info.icon}
+                            </div>
+                            <div className="flex flex-row sm:flex-col gap-1 sm:gap-0 items-center sm:items-start">
+                                <div className="text-sm text-foreground/60 whitespace-nowrap font-body">{info.label}</div>
+                                <div className="font-medium text-primary whitespace-nowrap font-body">{info.value}</div>
                             </div>
                         </div>
                     ))}
@@ -68,26 +84,30 @@ export const ContactSection = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Contact Links */}
-                    <div className="space-y-8">
+                    <div 
+                        className="space-y-8"
+                        data-aos="fade-right"
+                        data-aos-delay="600"
+                    >
                         <div className="flex flex-col gap-8">
-                            <h3 className="text-2xl font-semibold text-primary mb-8">
+                            <h3 className="text-2xl font-semibold text-primary mb-8 font-display">
                                 Get in Touch
                             </h3>
-                            <div className="bg-card rounded-lg p-8 border border-border">
+                            <div className="bg-card rounded-xl p-8 border border-border/50 shadow-lg">
                                 <div className="flex flex-col gap-6">
                                     {contactLinks.map((link, index) => (
                                         <a
                                             key={index}
                                             href={link.url}
                                             {...(link.name !== 'Email' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                                            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group p-4 w-full hover:bg-primary/5 rounded-lg"
+                                            className="flex items-center gap-4 text-foreground/70 hover:text-primary transition-all duration-300 group p-4 w-full hover:bg-primary/5 rounded-xl hover:scale-105"
                                         >
-                                            <div className="p-0 rounded-xl border border-border group-hover:border-primary group-hover:bg-primary/10 transition-colors">
+                                            <div className="p-3 rounded-xl border border-border/50 group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300 group-hover:scale-110">
                                                 {link.icon}
                                             </div>
                                             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between flex-1 gap-1 sm:gap-0">
-                                                <div className="font-medium text-lg">{link.name}</div>
-                                                <div className="text-sm text-muted-foreground group-hover:text-primary/80 text-right break-all">{link.text}</div>
+                                                <div className="font-medium text-lg font-display">{link.name}</div>
+                                                <div className="text-sm text-foreground/60 group-hover:text-primary/80 text-right break-all font-body">{link.text}</div>
                                             </div>
                                         </a>
                                     ))}
@@ -97,7 +117,11 @@ export const ContactSection = () => {
                     </div>
 
                     {/* Contact Form */}
-                    <div className="bg-card rounded-lg p-8 border border-border">
+                    <div 
+                        className="bg-card rounded-xl p-8 border border-border/50 shadow-lg"
+                        data-aos="fade-left"
+                        data-aos-delay="800"
+                    >
                         <form
                             action="https://api.web3forms.com/submit"
                             method="POST"
@@ -106,7 +130,7 @@ export const ContactSection = () => {
                             <input type="hidden" name="access_key" value="a43f63e6-0712-44ea-8130-7a7ce1c28eaa" />
 
                             <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-2">
+                                <label htmlFor="name" className="block text-sm font-medium text-foreground/70 mb-2 font-body">
                                     Name
                                 </label>
                                 <input
@@ -114,13 +138,13 @@ export const ContactSection = () => {
                                     id="name"
                                     name="name"
                                     required
-                                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                                    className="w-full px-4 py-3 rounded-lg border border-border/50 bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-body"
                                     placeholder="Your Name"
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-2">
+                                <label htmlFor="email" className="block text-sm font-medium text-foreground/70 mb-2 font-body">
                                     Email
                                 </label>
                                 <input
@@ -128,13 +152,13 @@ export const ContactSection = () => {
                                     id="email"
                                     name="email"
                                     required
-                                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                                    className="w-full px-4 py-3 rounded-lg border border-border/50 bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-body"
                                     placeholder="yourmail@example.com"
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-2">
+                                <label htmlFor="message" className="block text-sm font-medium text-foreground/70 mb-2 font-body">
                                     Message
                                 </label>
                                 <textarea
@@ -142,14 +166,14 @@ export const ContactSection = () => {
                                     name="message"
                                     rows="5"
                                     required
-                                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
+                                    className="w-full px-4 py-3 rounded-lg border border-border/50 bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none font-body"
                                     placeholder="Your message here..."
                                 ></textarea>
                             </div>
 
                             <button
                                 type="submit"
-                                className="w-full cosmic-button py-3 text-base"
+                                className="w-full cosmic-button py-3 text-base glow-hover font-display font-semibold"
                             >
                                 Send Message
                             </button>

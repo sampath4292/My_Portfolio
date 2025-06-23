@@ -65,21 +65,22 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    /* New color palette: Deep blue, coral, soft off-white */
+    --background: 0 0% 96%; /* #F5F5F5 - soft off-white */
+    --foreground: 220 25% 18%; /* #1B2A49 - deep blue */
     --card: 0 0% 100%;
-    --primary: 250 47% 60%;
-    --primary-foreground: 210 40% 98%;
-    --border: 214 32% 91%;
+    --primary: 6 100% 71%; /* #FF6B6B - coral */
+    --primary-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
   }
 
   .dark {
-    --background: 222 47% 4%;
-    --foreground: 213 31% 91%;
-    --card: 222 47% 8%;
-    --primary: 250 65% 65%;
-    --primary-foreground: 213 31% 91%;
-    --border: 217 33% 20%;
+    --background: 220 25% 8%; /* Darker version of deep blue */
+    --foreground: 0 0% 96%; /* Light version of off-white */
+    --card: 220 25% 12%;
+    --primary: 6 100% 71%; /* #FF6B6B - coral */
+    --primary-foreground: 220 25% 8%;
+    --border: 220 25% 20%;
   }
 
   * {
@@ -93,6 +94,22 @@
   body {
     @apply bg-background text-foreground transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }
 
@@ -119,11 +136,11 @@
 
 @utility text-glow {
   @apply relative;
-  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
 }
 
 @utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+  @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/10;
 }
 
 @utility gradient-border {
@@ -134,8 +151,8 @@
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+  @apply px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium 
+         transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,107,107,0.4)]
          hover:scale-105 active:scale-95;
 }
 
@@ -150,20 +167,20 @@
 }
 
 @utility glow-hover {
-  @apply transition-shadow duration-300;
-  box-shadow: 0 0 0px 0px rgba(139,92,246,0.0);
+  @apply transition-all duration-300;
+  box-shadow: 0 0 0px 0px rgba(255,107,107,0.0);
 }
 .glow-hover:hover, .glow-hover:focus {
-  box-shadow: 0 0 16px 4px rgba(139,92,246,0.7), 0 0 32px 8px rgba(139,92,246,0.3);
+  box-shadow: 0 0 16px 4px rgba(255,107,107,0.3), 0 0 32px 8px rgba(255,107,107,0.1);
   outline: none;
 }
 
 @utility glow-card-hover {
-  @apply transition-shadow duration-300;
-  box-shadow: 0 0 0px 0px rgba(139,92,246,0.0);
+  @apply transition-all duration-300;
+  box-shadow: 0 0 0px 0px rgba(255,107,107,0.0);
 }
 .glow-card-hover:hover, .glow-card-hover:focus {
-  box-shadow: 0 0 32px 8px rgba(139,92,246,0.5), 0 0 64px 16px rgba(139,92,246,0.2);
+  box-shadow: 0 0 32px 8px rgba(255,107,107,0.2), 0 0 64px 16px rgba(255,107,107,0.1);
   outline: none;
 }
 
@@ -198,7 +215,7 @@
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -206,15 +223,46 @@
   }
 }
 
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 .animate-waving-hand {
   animation: waving-hand 2.5s ease-in-out infinite;
-  transform-origin: 70% 70%;
-  display: inline-block;
 }
 
 .animate-rubber-band {
@@ -222,65 +270,114 @@
 }
 
 .animate-fade-up {
-  animation: fade-up 0.5s ease-out forwards;
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s ease-out forwards;
 }
 
 .typing-cursor::after {
   content: '|';
-  margin-left: 2px;
-  animation: blink 1s step-end infinite;
+  animation: blink 1s infinite;
+  color: hsl(var(--primary));
 }
 
 @keyframes bubble-float {
   0%, 100% {
-    transform: translateY(0) scale(1);
+    transform: translateY(0px) scale(1);
+    opacity: 0.7;
   }
   50% {
-    transform: translateY(-30px) scale(1.08);
+    transform: translateY(-20px) scale(1.1);
+    opacity: 1;
   }
 }
 
 .bubble-float {
-  will-change: transform, opacity;
+  animation: bubble-float 4s ease-in-out infinite;
 }
 
 .lift-shadow-hover {
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.lift-shadow-hover:hover, .lift-shadow-hover:focus {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 12px 32px 0 rgba(139,92,246,0.25), 0 2px 8px 0 rgba(0,0,0,0.10);
-  z-index: 2;
+  transition: all 0.3s ease;
 }
 
-/* Ripple effect */
+.lift-shadow-hover:hover, .lift-shadow-hover:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
 .ripple {
   position: relative;
   overflow: hidden;
 }
+
 .ripple span.ripple {
   position: absolute;
   border-radius: 50%;
   transform: scale(0);
-  animation: ripple-animation 0.5s linear;
-  background: rgba(139,92,246,0.3);
-  pointer-events: none;
-  z-index: 10;
+  animation: ripple-animation 0.6s linear;
+  background-color: rgba(255, 107, 107, 0.3);
 }
+
 @keyframes ripple-animation {
   to {
-    transform: scale(2.5);
+    transform: scale(4);
     opacity: 0;
   }
 }
 
-/* Fade-in-up for scroll entry */
 .fade-in-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
 }
+
 .fade-in-up.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, .interactive {
+  transition: all 0.3s ease;
+}
+
+/* Enhanced focus states */
+a:focus, button:focus, .interactive:focus {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Mobile cursor fallback */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
 }

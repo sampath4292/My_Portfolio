@@ -18,29 +18,41 @@ const navItems = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      
+      // Show/hide navbar based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false); // Hide when scrolling down
+      } else {
+        setIsVisible(true); // Show when scrolling up
+      }
+      
+      // Add background when scrolled
+      setIsScrolled(currentScrollY > 10);
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const scrollToSection = (href) => {
     setIsOpen(false);
     const element = document.querySelector(href);
-    const offset = 80; // Height of your fixed navbar
-    const bodyRect = document.body.getBoundingClientRect().top;
-    const elementRect = element.getBoundingClientRect().top;
-    const elementPosition = elementRect - bodyRect;
-    const offsetPosition = elementPosition - offset;
+    if (element) {
+      const offset = 80; // Height of your fixed navbar
+      const elementPosition = element.offsetTop - offset;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth"
-    });
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth"
+      });
+    }
   };
 
   const handleRipple = useCallback((event) => {
@@ -60,14 +72,18 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300 fade-in-up",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        "fixed top-0 w-full z-50 transition-all duration-300 ease-out",
+        isScrolled 
+          ? "py-3 bg-background/95 backdrop-blur-md shadow-lg border-b border-border/50" 
+          : "py-5 bg-background/80 backdrop-blur-sm",
+        isVisible ? "translate-y-0" : "-translate-y-full"
       )}
     >
-      <div className="w-full max-w-7xl ml-0 px-4 flex items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto px-4 flex items-center justify-between">
         <a
-          className="text-xl font-bold text-primary flex items-center"
+          className="text-xl font-bold text-primary flex items-center font-display hover:scale-105 transition-transform duration-300"
           href="#hero"
+          onClick={(e) => { e.preventDefault(); scrollToSection("#hero"); }}
         >
           <span className="relative z-10">
             <span className="text-glow text-foreground"> Sampath's </span>{" "}
@@ -81,12 +97,13 @@ export const Navbar = () => {
             <button
               key={item.name}
               onClick={(e) => { handleRipple(e); scrollToSection(item.href); }}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300 ripple"
+              className="text-foreground/80 hover:text-primary transition-all duration-300 ripple font-body font-medium relative group"
             >
               {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
           ))}
-          <div className="border-l border-border pl-6">
+          <div className="border-l border-border/50 pl-6">
             <ThemeToggle />
           </div>
         </div>
@@ -95,12 +112,12 @@ export const Navbar = () => {
         <div className="flex items-center gap-6 lg:hidden">
           <button
             onClick={(e) => { handleRipple(e); setIsOpen(!isOpen); }}
-            className="p-2 text-foreground z-50 ripple"
+            className="p-2 text-foreground z-50 ripple hover:text-primary transition-colors duration-300"
             aria-label={isOpen ? "Close Menu" : "Open Menu"}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          <div className="border-l border-border pl-6">
+          <div className="border-l border-border/50 pl-6">
             <ThemeToggle />
           </div>
         </div>
@@ -120,7 +137,7 @@ export const Navbar = () => {
               <button
                 key={item.name}
                 onClick={(e) => { handleRipple(e); scrollToSection(item.href); }}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300 ripple"
+                className="text-foreground/80 hover:text-primary transition-all duration-300 ripple font-body font-medium hover:scale-110"
               >
                 {item.name}
               </button>

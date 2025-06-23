@@ -1,5 +1,4 @@
 import { Code2, Cloud, Server, Terminal, Braces, Layers } from "lucide-react";
-import { useEffect } from "react";
 
 export const SkillsSection = () => {
     const skillCategories = [
@@ -35,27 +34,13 @@ export const SkillsSection = () => {
         }
     ];
 
-    useEffect(() => {
-        const observer = new window.IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            },
-            { threshold: 0.15 }
-        );
-        document.querySelectorAll('.fade-in-up').forEach((el) => {
-            observer.observe(el);
-        });
-        return () => observer.disconnect();
-    }, []);
-
     return (
         <section id="skills" className="py-24 px-4 relative">
             <div className="container mx-auto max-w-5xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <h2 
+                    className="text-3xl md:text-4xl font-bold mb-16 text-center font-display"
+                    data-aos="fade-up"
+                >
                     Skills & Technologies
                 </h2>
 
@@ -63,13 +48,15 @@ export const SkillsSection = () => {
                     {skillCategories.map((category, index) => (
                         <div
                             key={index}
-                            className="bg-card rounded-lg p-6 hover:shadow-xl transition-all duration-300 border border-border group hover:border-primary glow-card-hover lift-shadow-hover fade-in-up"
+                            className="bg-card rounded-xl p-6 hover:shadow-xl transition-all duration-300 border border-border/50 group hover:border-primary/50 glow-card-hover lift-shadow-hover"
+                            data-aos="fade-up"
+                            data-aos-delay={index * 100}
                         >
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="text-primary p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="text-primary p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
                                     {category.icon}
                                 </div>
-                                <h3 className="text-lg font-semibold text-primary">
+                                <h3 className="text-lg font-semibold text-primary font-display">
                                     {category.title}
                                 </h3>
                             </div>
@@ -78,7 +65,7 @@ export const SkillsSection = () => {
                                 {category.skills.map((skill, skillIndex) => (
                                     <span
                                         key={skillIndex}
-                                        className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                                        className="px-3 py-2 text-sm rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all duration-300 font-body font-medium hover:scale-105"
                                     >
                                         {skill}
                                     </span>

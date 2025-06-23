@@ -69,10 +69,16 @@ export const HeroSection = () => {
     return (
         <section
             id="hero" 
-            className="relative min-h-screen flex flex-col items-center justify-center px-4">
+            className="relative min-h-screen flex flex-col items-center justify-center px-4"
+            data-aos="fade-up"
+        >
                 <div className="container max-w-4xl mx-auto text-center z-10">
-                    <div className="space-y-2">
-                        <div className="text-2xl md:text-3xl font-medium tracking-tight mb-2 h-10">
+                    <div className="space-y-6">
+                        <div 
+                            className="text-2xl md:text-3xl font-medium tracking-tight mb-4 h-10 font-body"
+                            data-aos="fade-down"
+                            data-aos-delay="200"
+                        >
                             <span 
                                 className={`text-foreground inline-block min-h-[1.5em] transition-opacity duration-300 ${
                                     showGreeting ? 'opacity-100' : 'opacity-0'
@@ -81,31 +87,54 @@ export const HeroSection = () => {
                                 {greetingText}
                             </span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                            <span className="text-primary">
+                        <h1 
+                            className="text-4xl md:text-6xl font-bold tracking-tight font-display"
+                            data-aos="fade-up"
+                            data-aos-delay="400"
+                        >
+                            <span className="text-primary bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                                 Sampath Kumar Sreeram
                             </span>
                         </h1>
 
-                        <h2 className="text-xl text-primary h-8 mt-4">
+                        <h2 
+                            className="text-xl text-primary h-8 mt-6 font-body font-medium"
+                            data-aos="fade-up"
+                            data-aos-delay="600"
+                        >
                             <span className="inline-block typing-cursor min-h-[1.5em]">
                                 {roleText}
                             </span>
                         </h2>
 
-                        <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-4 mt-6">
+                        <p 
+                            className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto font-body leading-relaxed"
+                            data-aos="fade-up"
+                            data-aos-delay="800"
+                        >
                             I'm a Computer Science student passionate about building creative tech solutions and exploring new ideas.
                         </p>
 
-                        <div className="pt-8 opacity-0 animate-fade-in-delay-5">
-                            <a href="#projects" className="cosmic-button transition-all duration-300 hover:shadow-[0_0_16px_4px_rgba(59,130,246,0.5)] hover:-translate-y-1 transform">
+                        <div 
+                            className="pt-8"
+                            data-aos="fade-up"
+                            data-aos-delay="1000"
+                        >
+                            <a 
+                                href="#projects" 
+                                className="cosmic-button glow-hover font-display font-semibold"
+                            >
                                 View My Work
                             </a>
                         </div>
                     </div>
                 </div>
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-                    <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
+                <div 
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce"
+                    data-aos="fade-up"
+                    data-aos-delay="1200"
+                >
+                    <span className="text-sm text-foreground/60 mb-2 font-body"> Scroll </span>
                     <ArrowDown className="h-5 w-5 text-primary" />
                 </div>
         </section>
