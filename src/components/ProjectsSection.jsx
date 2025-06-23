@@ -17,7 +17,7 @@ export const ProjectsSection = () => {
             techStack: ["HTML", "CSS", "JS"],
             githubLink: "https://github.com/sampath4292/dsa-tracker",
             demoLink: "https://track-algo.netlify.app/",
-            image: "/dp.png"
+            image: "/public/DSA.png"
         },
         {
             title: "My Portfolio",
