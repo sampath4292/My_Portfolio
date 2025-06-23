@@ -4,44 +4,30 @@ import { useEffect } from "react";
 export const ProjectsSection = () => {
     const projects = [
         {
+            title: "Online Book Shop with Admin Dashboard",
+            description: "This project is a modern, responsive online book shop website built with React, Javacript, Tailwind CSS and MongoDB. It features an admin dashboard for managing books, users, and orders, providing a complete e-commerce solution.",
+            techStack: ["React","Tailwind CSS","Javascript","MongoDB","Express.js","Node.js"],
+            githubLink: "https://github.com/sampath4292/BOOK_SHOP",
+            demoLink: "https://tourist-compass.netlify.app/",
+            image: "/touristcompass.png"
+        },
+        {
             title: "DSA Tracker",
-            description: "",
-            techStack: ["Python", "Machine Learning", "Streamlit","Data Analysis"],
-            githubLink: "https://github.com/Geethanjali37/PREDICTION-OF-DISEASE-OUTBREAKS",
-            demoLink: "https://nvs4thmv67633kwhmjmsxu.streamlit.app/",
+            description: "DSA Tracker is a sleek and user-friendly web application built to help students and programmers systematically track their progress in Data Structures and Algorithms (DSA). Whether you're preparing for coding interviews or improving problem-solving skills, this tracker ensures you stay organized, consistent, and motivated throughout your DSA journey.",
+            techStack: ["HTML", "CSS", "JS"],
+            githubLink: "https://github.com/sampath4292/dsa-tracker",
+            demoLink: "https://track-algo.netlify.app/",
             image: "/dp.png"
         },
         {
             title: "My Portfolio",
             description: "This project is a modern, responsive personal portfolio website built with React, TypeScript, and Tailwind CSS. It showcases my skills, projects, achievements, and experience as a Full Stack Developer and Competitive Programmer.",
             techStack: ["React(with Vite)","TypeScript","Tailwind CSS","React Context API"],
-            githubLink: "https://github.com/Geethanjali37/My-Portfolio",
+            githubLink: "https://github.com/sampath4292/My_Portfolio",
             demoLink: "https://geethanjalir-portfolio.netlify.app/",
-            image: "/my-portfolio.png"
+            image: "/public/port_folio.png"
         },
-        {
-            title: "Tourist Compass",
-            description: "Tourist Compass is a responsive, user-friendly travel guide website that helps users explore popular tourist destinations across India. Built using HTML, CSS, and JavaScript, this project presents a beautifully designed platform to browse through iconic locations categorized by region",
-            techStack: ["HTML5","CSS3","Javascript"],
-            githubLink: "https://github.com/Geethanjali37/Tourist-Compass",
-            demoLink: "https://tourist-compass.netlify.app/",
-            image: "/touristcompass.png"
-        },
-        {
-            title: "Safe Streets",
-            description: "SafeStreets is a modern, responsive transportation service website built with HTML, CSS, and JavaScript. This project provides a clean and functional platform that showcases essential travel-related services",
-            techStack: ["HTML5","CSS3","Javascript"],
-            githubLink: "https://github.com/Geethanjali37/SafeStreets",
-            demoLink: "https://safestreets.netlify.app/",
-            image: "/safestreets.png"
-        },{
-            title: "OptiStyle",
-            description: "This project is a modern, responsive personal portfolio website built with React, TypeScript, and Tailwind CSS. It showcases my skills, projects, achievements, and experience as a Full Stack Developer and Competitive Programmer.",
-            techStack: ["HTML5","CSS3","Javascript"],
-            githubLink: "https://github.com/Geethanjali37/Optistyle",
-            demoLink: "https://opti-style.netlify.app/",
-            image: "/os.png"
-        }
+        
     ];
 
     const handleRipple = (event) => {
