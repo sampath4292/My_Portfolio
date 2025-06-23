@@ -9,7 +9,7 @@ export const ProjectsSection = () => {
             techStack: ["React","Tailwind CSS","Javascript","MongoDB","Express.js","Node.js"],
             githubLink: "https://github.com/sampath4292/BOOK_SHOP",
             demoLink: "https://tourist-compass.netlify.app/",
-            image: "/touristcompass.png"
+            image: "/public/Online.png"
         },
         {
             title: "DSA Tracker",
