@@ -9,7 +9,7 @@ export const ProjectsSection = () => {
             techStack: ["React","Tailwind CSS","Javascript","MongoDB","Express.js","Node.js"],
             githubLink: "https://github.com/sampath4292/BOOK_SHOP",
             demoLink: "https://tourist-compass.netlify.app/",
-            image: "/public/Online.png"
+            image: "/Online.png"
         },
         {
             title: "DSA Tracker",
@@ -17,7 +17,7 @@ export const ProjectsSection = () => {
             techStack: ["HTML", "CSS", "JS"],
             githubLink: "https://github.com/sampath4292/dsa-tracker",
             demoLink: "https://track-algo.netlify.app/",
-            image: "/public/DSA.png"
+            image: "/DSA.png"
         },
         {
             title: "My Portfolio",
@@ -25,7 +25,7 @@ export const ProjectsSection = () => {
             techStack: ["React(with Vite)","TypeScript","Tailwind CSS","React Context API"],
             githubLink: "https://github.com/sampath4292/My_Portfolio",
             demoLink: "https://geethanjalir-portfolio.netlify.app/",
-            image: "/public/port_folio.png"
+            image: "/port_folio.png"
         },
         
     ];
