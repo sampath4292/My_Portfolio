@@ -65,11 +65,11 @@
 
 @layer base {
   :root {
-    /* New color palette: Deep blue, coral, soft off-white */
+    /* New color palette: Dodger blue, deep blue, soft off-white */
     --background: 0 0% 96%; /* #F5F5F5 - soft off-white */
     --foreground: 220 25% 18%; /* #1B2A49 - deep blue */
     --card: 0 0% 100%;
-    --primary: 6 100% 71%; /* #FF6B6B - coral */
+    --primary: 210 100% 56%; /* #1E90FF - dodger blue */
     --primary-foreground: 0 0% 100%;
     --border: 220 13% 91%;
   }
@@ -78,7 +78,7 @@
     --background: 220 25% 8%; /* Darker version of deep blue */
     --foreground: 0 0% 96%; /* Light version of off-white */
     --card: 220 25% 12%;
-    --primary: 6 100% 71%; /* #FF6B6B - coral */
+    --primary: 210 100% 56%; /* #1E90FF - dodger blue */
     --primary-foreground: 220 25% 8%;
     --border: 220 25% 20%;
   }

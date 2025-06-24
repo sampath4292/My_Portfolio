@@ -13,15 +13,14 @@ import { CodingProfilesSection } from "../components/CodingProfilesSection";
 import { AchievementsSection } from "../components/AchievementsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
+import { ShapesBackground } from '../components/ShapesBackground';
 
 export const Home = () => {
     const { theme } = useTheme();
     return (
         <div className="min-h-screen">
-            {/*Theme Toggle */}
-            <ThemeToggle />
             {/*Background Effects */}
-            {theme === 'light' ? <LightThemeBackground /> : <BubblesBackground />}
+            <ShapesBackground theme={theme} />
             {/* NavBar */}
             <Navbar />
             {/* Main Content */}

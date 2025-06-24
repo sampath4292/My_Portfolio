@@ -21,9 +21,9 @@ export const ProjectsSection = () => {
         {
             title: "My Portfolio",
             description: "This project is a modern, responsive personal portfolio website built with React, TypeScript, and Tailwind CSS. It showcases my skills, projects, achievements, and experience as a Full Stack Developer and Competitive Programmer.",
-            techStack: ["React(with Vite)","TypeScript","Tailwind CSS","React Context API"],
+            techStack: ["React(with Vite)","JavaScript","Tailwind CSS","React Context API"],
             githubLink: "https://github.com/sampath4292/My_Portfolio",
-            demoLink: "https://geethanjalir-portfolio.netlify.app/",
+            demoLink: "https://sampathsportfolio.netlify.app/",
             image: "/port_folio.png"
         },
         

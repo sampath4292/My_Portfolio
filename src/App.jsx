@@ -35,8 +35,6 @@ function App() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {theme === 'light' ? <LightThemeBackground /> : <BubblesBackground />}
-      <ThemeToggle />
       <BrowserRouter>
         <Routes>
           <Route index element={<Home/>}/>
