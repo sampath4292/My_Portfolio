@@ -7,7 +7,7 @@ export const CodingProfilesSection = () => {
             username: "sampath4292",
             logo: "/leetcode-logo.png",
             rating: "1550+",
-            solved: "500+",
+            solved: "500",
             maxSolved: 1000,
             link: "https://leetcode.com/sampath4292",
         },
